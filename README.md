@@ -22,6 +22,10 @@ Other ways in:
 
 The whole app is one self-contained `index.html` with no build step to run it. It is generated from the shared source in the [robocopy-gui](https://github.com/ar-puuk/robocopy-gui) repo (`design/`), so that Fetch and Mirror keep identical design tokens and components. Make design changes there and run `node build.js`, rather than editing this `index.html` by hand.
 
+## Credits
+
+Icons are from [Lucide](https://lucide.dev) (ISC license), inlined unmodified. Fonts are Bricolage Grotesque, Instrument Sans and JetBrains Mono from Google Fonts.
+
 ## License
 
 See [LICENSE](LICENSE).
