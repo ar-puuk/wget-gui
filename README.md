@@ -1,17 +1,27 @@
-# Wget Command Generator: A Modern GUI for Advanced Web Retrieval
+# Fetch: a Wget command builder
 
-Effortlessly generate complex Wget commands for Windows and PowerShell with this intuitive and modern HTML tool. Designed for both novice and experienced users, this graphical user interface (GUI) simplifies the process of creating robust file download scripts, website mirrors, and spidering tasks. The tool provides access to a comprehensive set of Wget options, logically organized for ease of use. Additionally, it offers the unique capability to concatenate multiple commands and download them as a single, ready-to-run batch file.
+Build Wget commands visually instead of memorising flags. Fetch covers every option in `wget --help` for version 1.21 (155 settings), explains what each one does, warns about risky choices, and exports a queue of jobs as one `.bat` or `.ps1` script. It runs entirely in your browser. Nothing is uploaded.
 
-The sleek and responsive interface, built with a modern Windows 11-inspired Fluent Design, ensures a user-friendly experience. Options are grouped into logical sections such as "General," "Recursive & Mirroring," "Network & Auth," "Advanced," and "Output," allowing users to quickly locate and configure the desired settings with integrated tooltips for guidance.
+Fetch is part of **Conduit**, a pair of command builders that share one design system. Its sister app is [Mirror, the Robocopy builder](https://github.com/ar-puuk/robocopy-gui).
 
-## How to Use the Wget GUI
+## How to use it
 
-The tool is straightforward to use:
+1. **Pick a starting point.** Choose a preset such as Offline site copy or Images only, or start from scratch.
+2. **Fill in the tabs.** Target, What to download, Save layout, Filters, Performance, Requests, Security, Logging and Advanced. Rarely used options stay hidden until you turn on Show advanced.
+3. **Watch the command.** It updates as you choose, with every flag explained and notes for risky choices such as skipping certificate checks, passwords in the command, or crawling with no wait.
+4. **Add to queue.** Build several downloads, reorder them, then download one script. Stop on first failure is on by default.
 
-* **Specify Target:** Begin by entering the target URL to download or specifying an input file containing a list of links.
-* **Select Options:** Navigate through the various sections and select the desired Wget options using toggle switches for flags and text fields for parameters requiring values (such as recursion depth or authentication).
-* **Generate Command:** As you select options, the corresponding Wget command is dynamically generated and displayed in real-time.
-* **Add to Queue:** Once satisfied with a command, click the "Add Queue" button to save it to a list.
-* **Combine and Download:** Repeat the process to add multiple commands. When ready, click the "Download .BAT" button to download a `.bat` file containing all the generated commands.
+Other ways in:
 
-This tool eliminates the need to memorize Wget's extensive and case-sensitive syntax, reducing the risk of errors and saving valuable time.
+* **Find an option.** Type a name or a flag, such as `cookies` or `--limit-rate`, to search every tab at once.
+* **Paste a command.** Paste an existing `wget` command and the form fills in. Flags the builder does not recognise are kept under Advanced.
+* **Command palette.** `Ctrl+K` jumps to any option, preset or page. `Ctrl+Enter` adds the current command to the queue.
+* **Profiles.** Save a full set of options and load it later. Profiles, the queue and the form are remembered in this browser.
+
+## Development
+
+The whole app is one self-contained `index.html` with no build step to run it. It is generated from the shared source in the [robocopy-gui](https://github.com/ar-puuk/robocopy-gui) repo (`design/`), so that Fetch and Mirror keep identical design tokens and components. Make design changes there and run `node build.js`, rather than editing this `index.html` by hand.
+
+## License
+
+See [LICENSE](LICENSE).
